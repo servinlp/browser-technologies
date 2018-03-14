@@ -36,8 +36,8 @@ Criteria
 Link naar Oba [repo]
 Link naar Oba [project]
 
-![repo]: https://github.com/servinlp/project1-quick-hack-prototype
-![project]: http://oba.ser.vin/
+[repo]: https://github.com/servinlp/project1-quick-hack-prototype
+[project]: http://oba.ser.vin/
 
 - `localStorage`: Zonder `localStorage` werkt helemaal niks... Dit probleem komt doordat hij bij het ophalen van de data eerst kijkt of
   er iets in de `localStorage` staat voor hij een `fetch` gaat maken voor de data. Als `localStorage` dan niet
