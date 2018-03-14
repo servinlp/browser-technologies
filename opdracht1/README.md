@@ -33,6 +33,12 @@ Criteria
 
 ### Opdracht 1.2 - bevindingen
 
+Link naar Oba [repo]
+Link naar Oba [project]
+
+![repo]: https://github.com/servinlp/project1-quick-hack-prototype
+![project]: http://oba.ser.vin/
+
 - `localStorage`: Zonder `localStorage` werkt helemaal niks... Dit probleem komt doordat hij bij het ophalen van de data eerst kijkt of
   er iets in de `localStorage` staat voor hij een `fetch` gaat maken voor de data. Als `localStorage` dan niet
 ondersteund wordt zal deze een error gooien waardoor de code die hierna komt (de `fetch` dus) niks meer gaat doen.
@@ -67,3 +73,14 @@ aangepast dus hierbij zal de default styling van de browser zichtbaar zijn.
   website zonder JavaScript helemaal niks doen. Er is ook niet is als een `noscript` tag aanwezig dus er zal echt
 helemaal niks aangezig zijn. Hier zou dus iets als een `noscript` tag al een snelle winst zijn. De volgende stap zou dan
 server side rendering zijn. Als dit geimplementeerd zou zijn zou de website al meteen werken zonder JavaScript.
+
+### Screen reader test
+
+Een van de eerste dingen die opvallen is dat bij de categorie overzicht hij de categorien goed doet opnoemen maar hierna
+komt het getal met het aantal entries binnen de categorie. Probleem is dat hij gewoon een categorie + getal op noemt
+maar je eigenlijk nooit te horen krijgt wat het getal inhoud. Hierbij zou het dus netjes als je hoort wat het getal is.
+Foto's aantal 169349 in plaats van Foto 169349.
+
+In geval van de breadcrumb heb je eigenlijk ook het geval dat hij gewoon maar iets opnoemt maar je hier nergens hoort
+wat het is. Hier zou dus iets van een beschrijving bij mogen wat dan alleen voor de blinde/slechtziende is. Voor de
+"normale" gebruikers zal dit niet nodig zijn aangezien de visuele hint duidelijk maken wat het is.
