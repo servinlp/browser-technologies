@@ -34,6 +34,7 @@ Criteria
 ### Opdracht 1.2 - bevindingen
 
 Link naar Oba [repo]
+
 Link naar Oba [project]
 
 [repo]: https://github.com/servinlp/project1-quick-hack-prototype
@@ -74,7 +75,7 @@ aangepast dus hierbij zal de default styling van de browser zichtbaar zijn.
 helemaal niks aangezig zijn. Hier zou dus iets als een `noscript` tag al een snelle winst zijn. De volgende stap zou dan
 server side rendering zijn. Als dit geimplementeerd zou zijn zou de website al meteen werken zonder JavaScript.
 
-### Screen reader test
+### Opdracht 1.2 - Screen reader test
 
 Een van de eerste dingen die opvallen is dat bij de categorie overzicht hij de categorien goed doet opnoemen maar hierna
 komt het getal met het aantal entries binnen de categorie. Probleem is dat hij gewoon een categorie + getal op noemt
@@ -84,3 +85,18 @@ Foto's aantal 169349 in plaats van Foto 169349.
 In geval van de breadcrumb heb je eigenlijk ook het geval dat hij gewoon maar iets opnoemt maar je hier nergens hoort
 wat het is. Hier zou dus iets van een beschrijving bij mogen wat dan alleen voor de blinde/slechtziende is. Voor de
 "normale" gebruikers zal dit niet nodig zijn aangezien de visuele hint duidelijk maken wat het is.
+
+### Opdracht 1.2 - ToDo:
+
+- Check toevoegen of localStorage aanwezig is EN dat je ook kan schrijven.
+- Voor fonts is het gebruik van `font-display: swap;` misschien wel aan te raden als het externe font niet beschrikbaar
+  is. Dan laat hij de fallback fonts meteen zien. Dan maakt het dus niet veel uit of het font wel of niet laad. (En het
+is een stuk sneller natuurlijk.)
+- In geval van foto's kan het wel handig zijn om voor elke foto zijn ruimte al van te voren te "claimen". Dan zal je ook
+  geen verschruiving van de content krijgen.
+- Voor de snelheid van de website kan nog aardig wat getweakt worden. Niet persee grote dingen maar wel verbeteringen.
+  (Er is tenslotte een reden dat we een heel vak hebben gericht op gebied van performance.)
+- Om de website te laten werken zonder JavaScript zal de grootste uitdaging worden. En toch ook weer niet... Als de
+  website al op de server gerenderd worden en dan samen met de data naar de client gestuurd kan worden is hij eigenlijk
+al meteen progresive enhanced (op JavaScript gebied alleen dan). Nu is het laten renderen op de server hier voor nog wel
+het grootste (maar alsnog goed te doen).
