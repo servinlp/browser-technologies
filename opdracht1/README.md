@@ -110,7 +110,7 @@ tag.
   situatie is dat deze vanuit de api komen en ik hier dus geen aanpassingen kan doen (of ik moet alles op een eigen
 server opslaan, en dat gaan we niet doen).
 
-![](./images/1.jpg =300x)
-![](./images/2.jpg =300x)
-![](./images/e-reader.jpg =300x)
-![](./images/nokia.jpg =300x)
+![](./images/1.jpg)
+![](./images/2.jpg)
+![](./images/e-reader.jpg)
+![](./images/nokia.jpg)
