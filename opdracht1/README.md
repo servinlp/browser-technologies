@@ -86,6 +86,8 @@ In geval van de breadcrumb heb je eigenlijk ook het geval dat hij gewoon maar ie
 wat het is. Hier zou dus iets van een beschrijving bij mogen wat dan alleen voor de blinde/slechtziende is. Voor de
 "normale" gebruikers zal dit niet nodig zijn aangezien de visuele hint duidelijk maken wat het is.
 
+![Screen reader test](./images/screen-reader.png)
+
 ### Opdracht 1.2 - ToDo:
 
 - Check toevoegen of localStorage aanwezig is EN dat je ook kan schrijven.
@@ -109,6 +111,14 @@ tag.
 - Laadtijd word hier ook een ding. De afbeeldingen die ingeladen worden zijn nou eenmaal groot. Probleem in deze
   situatie is dat deze vanuit de api komen en ik hier dus geen aanpassingen kan doen (of ik moet alles op een eigen
 server opslaan, en dat gaan we niet doen).
+
+### Opdracht 1.2 - device lab test 2
+
+Ondertussen is er een es5 versie van de JavaScript toegevoegd. Dit doet voor een hoop gebruikers de website al bruikbaar
+maken maar bij het device lab is er geen verschil. Dit omdat de devices die daar zijn niet de wat nieuwere API's
+ondersteunen die ik gebruik. Denk hierbij aan `fetch`  en `Promise`. Babel doet alleen je code omzetten naar es5 maar
+geen polyfill toevoegen voor dit soort functies. Een optie zou zijn om hier een polyfill voor te gebruiken of geen
+gebruik te maken hiervan. Dus de ouderwetse `XMLHttpRequest` en callback functies.
 
 ![](./images/1.jpg)
 ![](./images/2.jpg)
