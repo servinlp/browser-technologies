@@ -100,3 +100,12 @@ is een stuk sneller natuurlijk.)
   website al op de server gerenderd worden en dan samen met de data naar de client gestuurd kan worden is hij eigenlijk
 al meteen progresive enhanced (op JavaScript gebied alleen dan). Nu is het laten renderen op de server hier voor nog wel
 het grootste (maar alsnog goed te doen).
+
+### Opdracht 1.2 - device lab
+
+- `<script type='module'>` is leuk maar werkt hier op 1 telefoon. Oplossing is dan om met babel een build te maken en
+  dit dan samen met de module versie in de code te plaatsen. En dan met gebruik van de `nomodule` tag op de `script`
+tag.
+- Laadtijd word hier ook een ding. De afbeeldingen die ingeladen worden zijn nou eenmaal groot. Probleem in deze
+  situatie is dat deze vanuit de api komen en ik hier dus geen aanpassingen kan doen (of ik moet alles op een eigen
+server opslaan, en dat gaan we niet doen).
