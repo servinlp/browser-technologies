@@ -109,3 +109,8 @@ tag.
 - Laadtijd word hier ook een ding. De afbeeldingen die ingeladen worden zijn nou eenmaal groot. Probleem in deze
   situatie is dat deze vanuit de api komen en ik hier dus geen aanpassingen kan doen (of ik moet alles op een eigen
 server opslaan, en dat gaan we niet doen).
+
+![](./images/1.jpg =300x)
+![](./images/2.jpg =300x)
+![](./images/e-reader.jpg =300x)
+![](./images/nokia.jpg =300x)
