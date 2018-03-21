@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tabbladen</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<style>
+			body {
+				font-family: 'Roboto', sans-serif;
+			}
+			main {
+				padding: 3em;
+				margin: 0 auto;
+				max-width: 40em;
+			}
+
+			article:nth-of-type( n ) {
+				display: none;
+			}
+
+			input:nth-of-type( 1 ):checked ~ article:nth-of-type( 1 ) {
+				display: block;
+			}
+
+			input:nth-of-type( 2 ):checked ~ article:nth-of-type( 2 ) {
+                                display: block;
+		        }
+
+			input:nth-of-type( 3 ):checked ~ article:nth-of-type( 3 ) {
+                                display: block;
+                        }
+
+			input:nth-of-type( 4 ):checked ~ article:nth-of-type( 4 ) {
+                                display: block;
+                        }
+		</style>
+	</head>
+	<body>
+		<main>
+			<input type="radio" name="tabs" id="first" checked>
+			<label for="first">Bull market</label>
+
+			<input type="radio" name="tabs" id="second">
+                        <label for="second">Bear market</label>
+
+			<input type="radio" name="tabs" id="third">
+                        <label for="third">Bull trap</label>
+
+			<input type="radio" name="tabs" id="fourth">
+                        <label for="fourth">Bear trap</label>
+
+			<article>
+				<h2>Bull market</h2>
+				<p>A bull market is a period of generally rising prices. The start of a bull market is marked by widespread pessimism. This point is when the "crowd" is the most "bearish". The feeling of despondency changes to hope, "optimism", and eventually euphoria, as the bull runs its course. This often leads the economic cycle, for example in a full recession, or earlier.</p>
+				<p>An analysis of Morningstar, Inc. stock market data from 1926 to 2014 found that a typical bull market "lasted 8.5 years with an average cumulative total return of 458%", while annualized gains for bull markets range from 14.9% to 34.1%.</p>
+			</article>
+
+			<article>
+				<h2>Bear market</h2>
+				<p>A bear market is a general decline in the stock market over a period of time. It is a transition from high investor optimism to widespread investor fear and pessimism. According to The Vanguard Group, "While there’s no agreed-upon definition of a bear market, one generally accepted measure is a price decline of 20% or more over at least a two-month period."</p>
+				<p>An analysis of Morningstar, Inc. stock market data from 1926 to 2014 found that a typical bear market "lasted 1.3 years with an average cumulative loss of −41%", while annualized declines for bear markets range from −19.7% to −47%.</p>
+			</article>
+
+			<article>
+				<h2>Bull trap</h2>
+				<p>In stock market trading, a Bull trap is an inaccurate signal that shows a decreasing trend in a stock or index has reversed and is now heading upwards, when in fact, the security will continue to decline.</p>
+				<p>It is seen as a trap because the bullish investor purchases the stock, thinking it will increase in value, but is trapped with a poor performing stock whose value is still falling.</p>
+			</article>
+
+			<article>
+				<h2>Bear trap</h2>
+				<p>A bear trap is a false signal that the rising trend of a stock or index has reversed when it has not. A bear trap prompts traders to place shorts on the stock or index, since they expect the underlying to decline in value. However, instead of declining further, the investment stays flat, or slightly recovers.</p>
+			</article>
+		</main>
+	</body>
+</html>
