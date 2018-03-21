@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en' class='no-js'>
 	<head>
 		<title>Tabbladen</title>
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -7,6 +7,44 @@
 			body {
 				font-family: 'Roboto', sans-serif;
 			}
+
+			.no-js nav {
+				display: none;
+			}
+
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				font-size: 0;
+			}
+
+			li {
+				display: inline-block;
+				width: 24%;
+				font-size: 16px;
+				font-size: 1rem;
+				margin-right: 1%;
+			}
+
+			li button {
+				display: block;
+				width: 100%;
+				font-size: 22.4px;
+				font-size: 1.4em;
+				padding: 1em 0;
+				background: #eee;
+				background: rgba( 0, 0, 0, 0.05 );
+				border: 0;
+				border-radius: 5px 5px 0 0;
+				padding: 1em 0;
+				cursor: pointer;
+			}
+
+			li button.active {
+				background: rgba( 0, 0, 0, 0.1 );
+			}
+
 			main {
 				padding: 3em;
 				margin: 0 auto;
@@ -17,36 +55,35 @@
 				display: none;
 			}
 
-			input:nth-of-type( 1 ):checked ~ article:nth-of-type( 1 ) {
+			article.active {
 				display: block;
 			}
 
-			input:nth-of-type( 2 ):checked ~ article:nth-of-type( 2 ) {
-                                display: block;
-		        }
+			.no-js article {
+				display: block;
+			}
 
-			input:nth-of-type( 3 ):checked ~ article:nth-of-type( 3 ) {
-                                display: block;
-                        }
-
-			input:nth-of-type( 4 ):checked ~ article:nth-of-type( 4 ) {
-                                display: block;
-                        }
 		</style>
 	</head>
 	<body>
+
 		<main>
-			<input type="radio" name="tabs" id="first" checked>
-			<label for="first">Bull market</label>
-
-			<input type="radio" name="tabs" id="second">
-                        <label for="second">Bear market</label>
-
-			<input type="radio" name="tabs" id="third">
-                        <label for="third">Bull trap</label>
-
-			<input type="radio" name="tabs" id="fourth">
-                        <label for="fourth">Bear trap</label>
+			<nav>
+				<ul>
+					<li>
+						<button data-button-index="0">Bull market</button>
+					</li>
+					<li>
+			                        <button data-button-index="1">Bear market</button>
+					</li>
+					<li>
+						<button data-button-index="2">Bull trap</button>
+	                                </li>
+					<li>
+						<button data-button-index="3">Bear trap</button>
+				        </li>
+				</ul>
+			</nav>
 
 			<article>
 				<h2>Bull market</h2>
@@ -72,4 +109,44 @@
 			</article>
 		</main>
 	</body>
+	<script>
+
+	if ( 'querySelector' in document && 'addEventListener' in window ) {
+
+		document.documentElement.className = ''
+
+		var buttons =  document.querySelectorAll( 'nav button' ),
+			i
+
+		for ( i = 0; i < buttons.length; i++ ) {
+
+			buttons[ i ].addEventListener( 'click', toggleArticle )
+
+		}
+
+		function toggleArticle( e ) {
+
+			var that = e.getAttribute ? e : e.target,
+				activeButton = document.querySelector( 'nav button.active' ),
+				index = parseInt( that.getAttribute( 'data-button-index' ) ),
+				articles = document.querySelectorAll( 'article' ),
+				currentActive = document.querySelector( 'article.active' )
+
+			if ( activeButton ) {
+
+				activeButton.className = ''
+				currentActive.className = ''
+
+			}
+
+			that.className = 'active'
+			articles[ index ].className = 'active'
+
+		}
+
+		toggleArticle( buttons[ 0 ] )
+
+	}
+
+	</script>
 </html>
