@@ -41,62 +41,35 @@ Link naar Oba [project]
 [project]: http://oba.ser.vin/
 
 - `localStorage`
-
-..* Zonder `localStorage` werkt helemaal niks...
-
-..* Kan dankzij error van 'localStorage' ook geen data ophalen (deze code staat hier na)
-
+  - Zonder `localStorage` werkt helemaal niks...
+  - Kan dankzij error van 'localStorage' ook geen data ophalen (deze code staat hier na)
 - Contrast
-
-..* Bij beide tekst kleuren zeer goed
-
-..* Een is wit op blauw/zwart, dus uitermaten goed. De andere combinatie is beige op blauw/zwart. Deze is qua contrast ietsjes minder dan wit op blauw/zwart maar alsnog zeer goed.
-
+  - Bij beide tekst kleuren zeer goed
+  - Een is wit op blauw/zwart, dus uitermaten goed. De andere combinatie is beige op blauw/zwart. Deze is qua contrast ietsjes minder dan wit op blauw/zwart maar alsnog zeer goed.
 - Kleur
-
-..* De website is gemaakt voor het weergeven van afbeeldingen
-
-..* Deze komen uit een API dus kan niet veel gedaan worden aan kleur
-
+  - De website is gemaakt voor het weergeven van afbeeldingen
+  - Deze komen uit een API dus kan niet veel gedaan worden aan kleur
 - Custom font
-
-..* Worden momenteel Roboto van Google fonts ingeladen
-
-..* Hier wordt de code voor de fallback fonts gebruikt van Github
-
-..* Wordt geen gebruik gemaakt van iets als `font-display: swap;`
-
+  - Worden momenteel Roboto van Google fonts ingeladen
+  - Hier wordt de code voor de fallback fonts gebruikt van Github
+  - Wordt geen gebruik gemaakt van iets als `font-display: swap;`
 ```
 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color\a Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
 ```
-
 - Foto's
-
-..* Afbeeldingen zijn het belangrijkste van de site
-
-..* Grote van de afbeeldingen heb ik totaal niet in de hand
-
-..* Mogelijke "oplossing" voor laadtijd is een fallback afbeelding voor het geval dat er geen afbeelding is of het inladen lang duurt
-
+  - Afbeeldingen zijn het belangrijkste van de site
+  - Grote van de afbeeldingen heb ik totaal niet in de hand
+  - Mogelijke "oplossing" voor laadtijd is een fallback afbeelding voor het geval dat er geen afbeelding is of het inladen lang duurt
 - Breedband internet
-
-..* De site een single page application is zal er pas wat zichtbaar worden zodra de JavaScript is ingeladen
-
-..* In eerste instantie zullen alleen de header worden ingeladen en pas als de data binnen is de rest
-
+  - De site een single page application is zal er pas wat zichtbaar worden zodra de JavaScript is ingeladen
+  - In eerste instantie zullen alleen de header worden ingeladen en pas als de data binnen is de rest
 - Cookies
-
-..* Wordt niet gebruik gemaakt van. Dit zal de website dus ook niet slopen.
-
+  - Wordt niet gebruik gemaakt van. Dit zal de website dus ook niet slopen.
 - Muis/Trackpad
-
-..* De structuur van de site is goed genoeg om alle content te bereiken door middel van tabben
-
+  - De structuur van de site is goed genoeg om alle content te bereiken door middel van tabben
 - JavaScript
-
-..* Aangezien de website een single page application is zal de website zonder JavaScript helemaal niks doen
-
-..* Er is niets iets als een `noscript` tag aanwezig
+  - Aangezien de website een single page application is zal de website zonder JavaScript helemaal niks doen
+  - Er is niets iets als een `noscript` tag aanwezig
 
 ### Opdracht 1.2 - Screen reader test
 
