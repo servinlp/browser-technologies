@@ -20,6 +20,13 @@
 				position: relative;
 				display: block;
 				cursor: pointer;
+				border: 10px dotted transparent;
+				padding: 30px 0;
+				transistion: border 0.3s ease;
+			}
+
+			label.dragging {
+				border-color: black;
 			}
 
 			input {
@@ -27,8 +34,13 @@
 			}
 
 			input[type="file"] {
+				position: absolute;
+				top: 0; right: 0; bottom: 0; left: 0;
 				opacity: 0;
-				visibility: hidden;
+				display: block;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
 			}
 
 			input[type="submit"] {
@@ -132,19 +144,49 @@
 		if ( 'querySelector' in document && 'addEventListener' in window ) {
 
 			var inputFile = document.querySelector( 'input[type="file"]' ),
+				label = document.querySelector( 'form label' ),
 				i;
 
 			inputFile.addEventListener( 'change', fileChange );
 
 			if ( !( 'FileReader' in window ) ) {
 
-				var label = document.querySelector( 'form label' ),
-					div = document.createElement( 'div' );
+				var div = document.createElement( 'div' );
 
 				div.className = 'file-number';
 				div.textContent = '0';
 
 				label.appendChild( div );
+
+			}
+
+			if ( 'ondragstart' in document.documentElement && 'ondragleave' in document.documentElement ) {
+
+				var input = label.querySelector( 'input' );
+
+				input.addEventListener( 'dragenter', addClass );
+				label.addEventListener( 'dragenter', addClass );
+
+				input.addEventListener( 'dragleave', removeClass );
+				label.addEventListener( 'dragleave', removeClass );
+
+				input.addEventListener( 'dragend', removeClass );
+                                label.addEventListener( 'dragend', removeClass );
+
+				input.addEventListener( 'drop', removeClass );
+                                label.addEventListener( 'drop', removeClass );
+
+				function addClass() {
+
+					label.className = 'dragging';
+
+				}
+
+				function removeClass() {
+
+					label.className = '';
+
+				}
 
 			}
 
