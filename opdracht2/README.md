@@ -57,11 +57,11 @@ Ook al wordt de demo uitgebreid door de JavaScript die er aan toegevoegd wordt, 
 bestaat uit een titel, label met input element en een submit button. Hier gaat dus niet heel veel mis.
 
 **Device lab**
-![](./images/1-1.jpg)
-![](./images/1-2.jpg)
-![](./images/1-3.jpg)
-![](./images/1-4.jpg)
-![](./images/1-5.jpg)
-![](./images/1-6.jpg)
+![](./images/2-1.jpg)
+![](./images/2-2.jpg)
+![](./images/2-3.jpg)
+![](./images/2-4.jpg)
+![](./images/2-5.jpg)
+![](./images/2-6.jpg)
 
 [Image picker]: https://servinlp.github.io/browser-technologies/opdracht2/image-picker.html
