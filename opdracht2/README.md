@@ -15,3 +15,15 @@ criteria
   - Bronnen van uitleg en gebruikte artikelen.
   -	Welke browsers/devices ondersteunen deze wel/niet.
   -	Een beschrijving hoe de fallback werkt.
+
+### Opdracht 2 - Tabbladen
+
+De demo: [Tabbladen]
+
+[Tabbladen]: https://servinlp.github.io/browser-technologies/opdracht2/tabbladen.html
+
+### Opdracht 2 - Image picker
+
+De demo: [Image picker]
+
+[Image picker]: https://servinlp.github.io/browser-technologies/opdracht2/image-picker.html
