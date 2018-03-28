@@ -1,0 +1,14 @@
+<%- include( 'head.ejs' ) %>
+
+<main>
+	<header>
+		<h1>Albert Hein helpdesk</h1>
+	</header>
+	<iframe src="/chat"></iframe>
+	<form action="/new-message" method="POST">
+		<textarea name="message"></textarea>
+		<input type="submit" value="Send">
+	</form>
+</main>
+
+<%- include( 'end.ejs' ) %>

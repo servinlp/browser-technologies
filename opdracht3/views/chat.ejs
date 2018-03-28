@@ -1,0 +1,9 @@
+<%- include( 'head.ejs' ) %>
+
+<ul class="chat">
+	<% messages.forEach( function( el ) { %>
+		<%- include( 'message.ejs', { message: el } ) %>
+	<% } ) %>
+</ul>
+
+<%- include( 'end.ejs' ) %>

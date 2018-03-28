@@ -1,0 +1,121 @@
+html, body {
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	color: #303030;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	font-smooth: always;
+}
+
+h1 {
+	padding: 0 0 30px;
+	font-size: 32px; font-size: 2em;
+	line-height: 1.125;
+}
+
+main {
+	padding: 32px; padding: 2em;
+	width: 100%;
+	min-width: 300px;
+	max-width: 700px;
+	border-radius: 10px;
+	box-sizing: border-box;
+}
+
+iframe {
+	width: 100%;
+	border: 0;
+	margin-bottom: 16px;
+}
+
+main .chat {
+	overflow-y: auto;
+	height: calc( 100vh - 470px );
+}
+
+.chat {
+	margin: 0;
+	list-style: none;
+	margin-bottom: 32px; margin-bottom: 2em;
+	padding: 32px; padding: 2em;
+	border: 1px solid #d9d5d0;
+	border-radius: 5px;
+	background-color: #fff;
+	box-sizing: border-box;
+}
+
+.chat li {
+	position: relative;
+	width: 50%;
+	display: block;
+	margin: 0 0 16px 40px; margin: 0 0 1em 2.5em;
+}
+
+.chat li:last-child {
+	margin-bottom: 0;
+}
+
+.chat .you {
+	text-align: right;
+	margin-left: auto;
+	margin-right: 40px;
+}
+
+.chat svg {
+	position: absolute;
+	top: -5px;
+	left: -35px;
+	width: 20px;
+	height: auto;
+	padding: 5px;
+	background-color: #78695f;
+	border-radius: 50%;
+	fill: #e8e4df;
+}
+
+.chat .you svg {
+	left: initial;
+	right: -35px;
+}
+
+.chat time {
+	display: block;
+	font-size: 11px; font-size: 0.7em;
+}
+
+form textarea {
+	display: block;
+	width: 100%;
+	height: 70px;
+	padding: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #f0ece6;
+	border-radius: 4px;
+	font-family: 'Roboto', sans-serif;
+	-webkit-appearance: none;
+	box-sizing: border-box;
+}
+
+form input {
+	font-size: 20px;
+	padding: 9px 15px;
+	margin-left: auto;
+	border-radius: 4px;
+	line-height: 1.2;
+	user-select: none;
+	display: block;
+	width: 100px;
+	border-radius: 4px;
+	cursor: pointer;
+	background-color: #3b9fe2;
+	color: #fff;
+	border: 0;
+}
+
+@media only screen and ( min-width: 600px ) {
+
+	main {
+		padding: 32px; padding: 2em;
+		margin: 50px auto;
+	}
+}
