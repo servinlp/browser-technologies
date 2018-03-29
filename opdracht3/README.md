@@ -21,7 +21,8 @@ Criteria
 
 Wat ik voor deze opdracht gemaakt heb is een chat waarbij klanten met de helpdesk in gesprek kunnen komen voor hun
 problemen. Deze chat heb ik voor nu even gemaakt met De Albert Hein in gedachte als "opdrachtgever". Bij de chat is
-progressive enhancement toegevoegd zodat de basis functionaliteiten in alle gevallen zou moeten blijven werken.
+progressive enhancement toegevoegd zodat de basis functionaliteiten in alle gevallen zal blijven werken en je kan
+blijven chatten.
 
 ### Progressive enhancement - de toepassing
 
@@ -64,6 +65,10 @@ Support:
 |               | Chrome | Edge | Firefox | IE | Opra | Safari |
 | ------------- | ------ | ---- | ------- | -- | ---- | ------ |
 | Basic support | 1      | Yes  | 1       | 7  | Yes  | 1.2    |
+
+Source: [MDN XMLHttpRequest]
+
+[MDN XMLHttpRequest]: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
 
 **Laag 3**
 
@@ -108,6 +113,52 @@ Support:
 | Standard - RFC 6455 Support | 43     | 14   | 48      | 10 | 12.10  | 6.0    |
 
 [ws]: https://github.com/websockets/ws
+
+Source: [MDN WebSockets]
+
+[MDN WebSockets]: https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+
+**Pattern primer**
+
+![](./readme-images/patter-primer.jpg)
+
+### Principes van opdracht 1
+
+(Alleen te principes die van toepassing zijn)
+
+- Afbeeldingen
+  - Worden eigenlijk niet gebruikt op de inline svg na. Deze is ook meer voor styling dan functie
+- JavaScript
+  - Door het gebruiken van progressive enhancement zal het niet uitmaken of dit aan staat of niet (of dat het maar
+    deels support)
+- Kleur
+  - De kleuren zijn in de style van de Albert Hein. Als deze ik deze test op [webaim.org] komt dit helaas niet door de
+    test heen
+
+![](./readme-images/contrast.png)
+
+[webaim.org]: https://webaim.org/resources/contrastchecker/
+
+### Screen reader
+
+De screen reader test ging veel beter dan ik had verwacht. Nu is mijn structuur heel simple dus je zou denken dat er
+niet veel fout kan gaan. Maar het gebruik van de `<time>` tag bij elk bericht zorgt er dus voor dat hij deze ook goed
+uitspreekt in plaats van iets zegt als '12 dubbele punt 28'.
+
+### Usability lab test
+
+Hier was de toevoeging van het progressive enhancement echt duidelijk. Ook al zag het er op sommige devices minder uit,
+de basis functionaliteit werkte wel overal.
+
+![](./readme-images/browser-test-1.jpg)
+
+![](./readme-images/browser-test-2.jpg)
+
+![](./readme-images/browser-test-3.jpg)
+
+![](./readme-images/browser-test-4.jpg)
+
+![](./readme-images/browser-test-5.jpg)
 
 ### To Do:
 
