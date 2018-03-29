@@ -18,6 +18,10 @@ import renderMessagesOnPage from './render_messages_on_page.js'
 
 		handleUsingAjax()
 
+	} else {
+
+		return null
+
 	}
 
 	renderMessagesOnPage()
