@@ -54,7 +54,7 @@ function transferComplete( e ) {
 
 function transferFailed() {
 
-        console.error( 'An error ocurred wuring the request' )
+    console.error( 'An error ocurred wuring the request' )
 	clearInterval( poll )
 	console.log( poll )
 
@@ -62,7 +62,7 @@ function transferFailed() {
 
 function transferCanceled() {
 
-        console.error( 'The request was canceled by the user' )
+    console.error( 'The request was canceled by the user' )
 	clearInterval( poll )
 	console.log( poll )
 

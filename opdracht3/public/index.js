@@ -6,11 +6,7 @@ import renderMessagesOnPage from './render_messages_on_page.js'
 
 	if ( !( 'classList' in document.body ) || !( 'querySelector' in document ) || !( 'addEventListener' in window ) ) return
 
-	/*if ( 'RTCPeerConnection' in window ) {
-
-	} else */
-
-       	if ( 'WebSocket' in window ) {
+	if ( 'WebSocket' in window ) {
 
 		handleUsingWebSockets()
 

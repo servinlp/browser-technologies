@@ -1,5 +1,294 @@
 	<% if ( !locals.reload ) { %>
-		<script type="module" src="/index.js"></script>
+		<!-- <script type="module" src="/index.js"></script> -->
 	<% } %>
+
+	<script>
+
+	( function() {
+
+		if ( 'classList' in document.body || 'querySelector' in document || 'addEventListener' in window ) {
+
+			var poll,
+				protocol = 'ws';
+
+			if ( window.location.protocol.substr( 0, 5 ) === 'https' ) {
+
+				protocol = 'wss';
+
+			}
+
+			if ( 'WebSocket' in window ) {
+
+				var socket = new WebSocket( protocol + '://' + window.location.host );
+
+			}
+
+			function createNewMessageElement( message ) {
+
+				var li = document.createElement( 'li' ),
+					time = document.createElement( 'time' ),
+					svg = document.createElementNS( 'http://www.w3.org/2000/svg', 'svg' ),
+					path = document.createElementNS( 'http://www.w3.org/2000/svg', 'path' );
+
+				li.textContent = message.message;
+				li.classList.add( message.from === uuid ? 'you' : message.from === 'you' ? 'you' : '_' );
+
+				time.setAttribute( 'datatime', message.date );
+				time.textContent = message.time;
+
+				svg.setAttribute( 'xmlns', 'http://www.w3.org/2000/svg' );
+				svg.setAttribute( 'viewBox', '0 0 512 512' );
+				path.setAttributeNS( null, 'd', 'M437.02 330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521 243.251 404 198.548 404 148 404 66.393 337.607 0 256 0S108 66.393 108 148c0 50.548 25.479 95.251 64.262 121.962-36.21 12.495-69.398 33.136-97.281 61.018C26.629 379.333 0 443.62 0 512h40c0-119.103 96.897-216 216-216s216 96.897 216 216h40c0-68.38-26.629-132.667-74.98-181.02zM256 256c-59.551 0-108-48.448-108-108S196.449 40 256 40s108 48.448 108 108-48.449 108-108 108z' );
+
+				svg.appendChild( path );
+
+				li.appendChild( time );
+				li.appendChild( svg );
+
+				return li;
+
+			}
+
+			function renderMessagesOnPage() {
+
+				var form = document.querySelector( 'form' ),
+			                iframe = document.querySelector( 'iframe' );
+
+				if ( !form ) return;
+
+				iframe.parentNode.removeChild( iframe );
+
+				form.insertAdjacentHTML( 'beforebegin', '<ul class="chat"></ul>' );
+
+				var ul = document.querySelector( 'ul.chat' );
+
+				for ( var i = 0; i < messages.length; i++ ) {
+
+					ul.appendChild( createNewMessageElement( messages[ i ] ) );
+
+				}
+
+			}
+
+			function handleUsingAjax() {
+
+				var form = document.querySelector( 'form' );
+
+				if ( !form ) return;
+
+				form.addEventListener( 'submit', handleAjaxFormSubmission );
+
+				longPolling();
+
+			}
+
+			function longPolling() {
+
+				poll = setInterval( polling, 4000 );
+
+			}
+
+			function polling() {
+
+				var request = new XMLHttpRequest(),
+					entries = messages.length;
+
+				request.open( 'GET', '/last-messages?entries='+ entries );
+				request.setRequestHeader( 'Content-Type', 'application/json;charset=UTF-8' );
+
+				request.addEventListener( 'load', pollingTransferComplete );
+		        request.addEventListener( 'error', pollingTransferFailed );
+		        request.addEventListener( 'abort', pollingTransferCanceled );
+
+				request.send();
+
+			}
+
+			function pollingTransferComplete( e ) {
+
+				if ( e.target.readyState === 4 ) {
+
+					var data = JSON.parse( e.target.response );
+
+					if ( data.messages.length > 0 ) {
+
+						var ul = document.querySelector( 'ul.chat' );
+
+						messages = messages.concat( data.messages );
+
+						for ( var i = 0; i < data.messages.length; i++ ) {
+
+							var li = createNewMessageElement( data.messages[i] );
+
+							ul.appendChild( li );
+
+						}
+
+					}
+
+				}
+
+			}
+
+			function pollingTransferFailed() {
+
+			    console.error( 'An error ocurred wuring the request' );
+				clearInterval( poll );
+				console.log( poll );
+
+			}
+
+			function pollingTransferCanceled() {
+
+			    console.error( 'The request was canceled by the user' );
+				clearInterval( poll );
+				console.log( poll );
+
+			}
+
+			function handleAjaxFormSubmission( e ) {
+
+				console.log( 'e', e );
+				console.log( 'this', this );
+
+				var URL = this.getAttribute( 'action' ),
+					textarea = this.querySelector( 'textarea' ),
+					request = new XMLHttpRequest();
+
+				request.open( 'POST', URL );
+				request.setRequestHeader( 'Content-Type', 'application/json;charset=UTF-8' );
+
+				request.addEventListener( 'load', transferComplete );
+				request.addEventListener( 'error', transferFailed );
+				request.addEventListener( 'abort', transferCanceled );
+
+				request.send( JSON.stringify( {
+					message: textarea.value,
+					fromAjax: true
+				} ) );
+
+				textarea.value = '';
+
+				e.preventDefault();
+
+			}
+
+			function transferComplete( e ) {
+
+				console.log( 'complete', e );
+
+				if ( e.target.readyState === 4 ) {
+
+					console.log( e.target );
+					console.log( e.target.readyState );
+					console.log( JSON.parse( e.target.response ) );
+
+					var response = JSON.parse( e.target.response )
+
+					var ul = document.querySelector( 'ul.chat' ),
+					li = createNewMessageElement( response.message );
+
+					messages.push( response.message );
+
+					ul.appendChild( li );
+
+				}
+
+			}
+
+			function transferFailed() {
+
+				console.error( 'An error ocurred wuring the request' );
+
+			}
+
+			function transferCanceled() {
+
+				console.error( 'The request was canceled by the user' );
+
+			}
+
+			var handleUsingWebSockets = function() {
+
+				var form = document.querySelector( 'form' );
+
+				if ( !form ) return;
+
+				socket.addEventListener( 'open', function( e ) {
+
+					console.log( 'open', e );
+
+				} );
+
+				socket.addEventListener( 'close', function( e ) {
+
+					console.log( 'close', e );
+
+				} );
+
+				socket.addEventListener( 'message', handleMessages );
+
+				form.addEventListener( 'submit', handleSocketsFormSubmission );
+
+			}
+
+			function handleMessages( e ) {
+
+				var data = JSON.parse( e.data );
+
+				if ( data.succes ) {
+
+					var ul = document.querySelector( 'ul.chat' ),
+						li = createNewMessageElement( data.message );
+
+					ul.appendChild( li );
+
+				}
+
+			}
+
+			var send = function( name, data ) {
+
+				socket.send( JSON.stringify( { [ name ]: data } ) );
+
+			}
+
+			var handleSocketsFormSubmission = function( e ) {
+
+				var textarea = this.querySelector( 'textarea' ),
+					message = textarea.value;
+
+				textarea.value = '';
+
+				send( 'newMessage', {
+					message,
+					uuid
+				} );
+
+				e.preventDefault();
+
+			}
+
+			if ( 'WebSocket' in window ) {
+
+				handleUsingWebSockets();
+
+			} else	if ( 'XMLHttpRequest' in window ) {
+
+				handleUsingAjax();
+
+			} else {
+
+				return null;
+
+			}
+
+			renderMessagesOnPage();
+
+		}
+
+	} )();
+
+	</script>
 </body>
 </html>

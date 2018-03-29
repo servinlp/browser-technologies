@@ -2,6 +2,7 @@ const express =	require( 'express' ),
 	session =	require( 'express-session' ),
 	bodyParser =	require( 'body-parser' ),
 	ejs =		require( 'ejs' ),
+	uuid =          require( 'uuid/v4' ),
 
 	messageData =	require( './scripts/message_data' ),
 	routes = 	require( './scripts/routes' ),
@@ -28,18 +29,20 @@ app.use( bodyParser.json() )
 
 app.get( '*', ( req, res, next ) => {
 
-	if ( req.session.uuid ) {
+	if ( !req.session.uuid ) {
 
-		res.locals.uuid = req.session.uuid
+		req.session.uuid = uuid()
 
-		const { message, date, time, from } = messageData.messages
-		res.locals.messages = {
-			message,
-			date,
-			time,
-			from: from === req.session.uuid ? 'you': ''
-		}
+	}
 
+	res.locals.uuid = req.session.uuid
+
+	const { message, date, time, from } = messageData.messages
+	res.locals.messages = {
+		message,
+		date,
+		time,
+		from: from === req.session.uuid ? 'you': ''
 	}
 
 	next()
