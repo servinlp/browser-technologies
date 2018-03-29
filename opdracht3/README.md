@@ -101,6 +101,12 @@ So for example someting I use is:
 }
 ```
 
+Support:
+
+|                             | Chrome | Edge | Firefox | IE | Opra   | Safari |
+| --------------------------- | ------ | ---- | ------- | -- | ------ | ------ |
+| Standard - RFC 6455 Support | 43     | 14   | 48      | 10 | 12.10  | 6.0    |
+
 [ws]: https://github.com/websockets/ws
 
 ### To Do:
