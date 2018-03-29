@@ -41,6 +41,8 @@ seconden verversen.
 <meta http-equiv="refresh" content="10">
 ```
 
+Support: 100%
+
 **Laag 2**
 
 Bij laag 2 worden al iets geavanceerdere dingen gebruikt. Bij deze laag zal er gewerkt worden met JavaScript (mits
@@ -56,6 +58,12 @@ zal returnen in plaats van de pagina te redirecten.
 Als laatste moest er bij deze laag nog wel gekeken worden naar hoe ik het beste kon kijken of er een nieuw bericht
 binnen was. Dit heb ik nu gedaan door middel van Long Polling. Met deze "techniek" die je om de x seconden een call
 maken naar de server om te kijken of er nieuwe berichten zijn. Zo ja, plak deze op de pagina.
+
+Support:
+
+|               | Chrome | Edge | Firefox | IE | Opra | Safari |
+| ------------- | ------ | ---- | ------- | -- | ---- | ------ |
+| Basic support | 1      | Yes  | 1       | 7  | Yes  | 1.2    |
 
 **Laag 3**
 
