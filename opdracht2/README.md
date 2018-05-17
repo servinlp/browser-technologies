@@ -56,12 +56,13 @@ een `a` tag is. Dan kan je zonder JavaScript namelijk de navigatie ook nog gebru
 
 De demo: [Image picker]
 
-Een "simpele" afbeelding picker/uploader. In geval van de meest simpele versie zal je alleen een input veld zien voor
-een bestand met een verzend knop. Zodra dingen als SVG, JavaScript en CSS ondersteund en aan hebt staan zal je foto's
-kunnen selecteren door op het icoon te klikken. Na het selecteren zal je dan kunnen zien hoeveel bestanden er
-geselecteerd zijn. Een stap verder is om de geselecteerde afbeeldingen weer te geven zodat je nog even ziet wij je aan
-het uploaden bent. Als laatste toevoegen kan je ook nog als drag en drop je bestanden er in gooien en zal je hier ook
-feedback over krijgen.
+Een "simpele" afbeelding picker/uploader. In geval van de meest simpele versie zal je alleen een input veld zien voor een bestand met een verzend knop. 
+
+Zodra dingen als SVG, JavaScript en CSS ondersteund en aan hebt staan zal je foto's kunnen selecteren door op het icoon te klikken. Hier wordt dan nog een check gedaan of de functie `FileReader` ondersteund wordt. Als deze niet ondersteund wordt zal na het selecteren je kunnen zien hoeveel bestanden er geselecteerd zijn. Dit verschijnt dan in een bolletje wat er naarst hangt. Hier voor wordt er dan een extra element toegevoegd aan de DOM waar dit getal in geplaatst zal worden. Dit zodat er alleen iets toegevoegd wordt als dit nodig is.
+
+Als `FileReader` wel ondersteund wordt zullen de geselecteerde afbeeldingen onder in verschijnen dat je nog een overzichtje hebt van welke afbeeldingen je geselecteerd hebt.
+
+Een stap verder is het toevoegen van afbeeldingen via drag en drop. Door gebruik te maken van `dragenter` en `dragleave` kan je feedback krijgen over wanneer je de afbeelding kan droppen in het juiste vak.
 
 **Screen reader test**
 
